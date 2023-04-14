@@ -47,10 +47,11 @@ header button {
     background-color: var(--black);
     color: var(--white);
 }
-header a {
+header nav {
     background-color: #FEBD2F;
     display: flex;
-    justify-content: flex-start;
+    width: 20%;
+    justify-content: space-around;
 }
 
 
