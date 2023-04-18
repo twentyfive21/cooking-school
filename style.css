@@ -12,12 +12,14 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+
 }
 
 a{
     text-decoration: none;
     color: var(--black);
 }
+
 /* ~~~~~~~~~~~~ grid container ~~~~~~~~~~~~ */
 .grid-container{
     display: grid;
@@ -50,9 +52,11 @@ header button{
 }
 header nav{
     display: flex;
-    width: 13%;
+    width: 15%;
     justify-content: space-between;
+    font-weight: 600;
 }
+
 /* ~~~~~~~~~~~~ main section ~~~~~~~~~~~~ */
 main{
     grid-area: main;
@@ -66,34 +70,117 @@ main{
  flex-direction: column;
  width: 50%;
  padding: 0px 20px 0px 20px;
+ margin: 10px;
 }
 h1{
-    font-size: 64px;
+    font-size: 55px;
     font-weight: 500;
 }
 main p {
     font-size: 24px;
+    color: var(--dark-grey);
 }
 main img {
-    border-radius: 40px;
+    border-radius: 50px;
     width: 600px;
     padding-right: 20px;
 }
+/**** hamburger menu start ***/
+
+/*The hamburger menu container*/
+.menu {
+    display: none;
+    position: absolute;
+    top: 80px;
+    right: 0;
+    height: 200px;
+    background-color: var(--yellow);
+    z-index: 1;
+    padding: 9px;
+    text-align: center;
+  }
+
+  /*This will make the hamburger menu show up when clicked*/
+  .menu.show {
+    display: block;
+    width: 100%;
+    transform: all 0.2s ease-in-out; 
+    transition: all 0.2s ease-in-out;
+  }
+
+/*Css for the anchor links inside the container*/
+  .menu a {
+    text-decoration: none;
+    font-size: 18px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    padding: 20px;
+    letter-spacing: 2px;
+  }
+/*This is the Hamburger menu icon*/
+  .menu-icon {
+    display: none;
+    position: absolute;
+    top: 41px;
+    right: 30px;
+    width: 30px;
+    height: 150px; /* target if conflicts */
+    cursor: pointer;
+  }
+  
+  /*The following 6 selectors are the styling to make the hamburger menu and its transitions*/
+  .menu-icon .icon {
+    width: 100%;
+    height: 3px;
+    background-color: #333;
+    position: relative;
+    transition: all 0.3s ease-in-out;
+  }
+  
+  .menu-icon .icon:before,
+  .menu-icon .icon:after {
+    content: "";
+    width: 100%;
+    height: 3px;
+    background-color: #333;
+    position: absolute;
+    left: 0;
+    transition: all 0.7s ease-in-out;
+    top: -10px;
+  }
+  .menu-icon .icon:after {
+    top: 10px;
+  }
+  
+  /* .menu-icon.active .icon {
+    background-color: transparent;
+  } */
+  
+  .menu-icon.active .icon:before {
+    transform: rotate(-240deg);
+    top: 0;
+  }
+  
+  .menu-icon.active .icon:after {
+    transform: rotate(600deg);
+    top: 0;
+  }
 /* ~~~~~~~~~~~~ card container ~~~~~~~~~~~~ */
 .card-container{
     grid-area: card;
     display: grid;
     grid-template-columns: repeat(3,1fr);
     gap: 100px 2px;
-    padding: 20px 20px 50px 20px;
+    padding: 20px 20px 50px 40px;
     background-color: var(--tan);
 }
 .card{
  display: flex;
  flex-direction: column;
  width: 90%;
- justify-self: center;
- padding: 40px;
+ justify-content: space-around;
+ padding: 30px;
  background-color: var(--white);
  border-radius: 40px;
  gap: 30px;
@@ -109,7 +196,10 @@ main img {
 .yellow {
     background-color: var(--yellow);
     font-size: 30px;
+    padding-top: 60px;
+    line-height: 47px;
 }
+
 .card button {
     width: 143px;
     height: 48px;
@@ -118,7 +208,6 @@ main img {
     border-radius: 50px;
     font-size: 16px;
     font-weight: 600;
-    margin-top: 20px;
 }
 h3 {
     font-size: 24px;
@@ -127,6 +216,7 @@ h3 {
 .card p {
     font-size: 18px;
     line-height: 28px;
+    color: grey;
 }
 /* ~~~~~~~~~~~~ footer ~~~~~~~~~~~~ */
 footer{
@@ -137,12 +227,14 @@ footer{
     align-items: center;
 }
 /* ~~~~~~~~~~~~ MEDIA QUERIES ~~~~~~~~~~~~ */
-@media (max-width: 850px) {
+@media (max-width: 964px) {
     .grid-container{
         grid-template-rows: 100px auto auto 80px;
     }
     .card-container{
         grid-template-columns: repeat(2,1fr);
+        gap: 50px 10px;
+        padding: 80px 0px 100px 50px;
     }
     main{
        flex-direction: column;
@@ -165,7 +257,7 @@ footer{
         margin-left: 25px;
     }
     header nav{
-        width: 20%;
+        width: 25%;
     }
     /* ~~~~~~ button too high added to correct only this card ~~~~~~~~~~~~ */
     .special button{
@@ -188,21 +280,32 @@ footer{
         padding: 30px;
         gap: 10px;
        }
-       .card-container{
-        gap: 50px 10px;
-        padding: 100px 0px;
-    }
+      
     }
     
-    @media (max-width: 468px) {
-        
+    @media (max-width: 600px) {
+        header {
+            display: flex;
+            justify-content: center;
+        }
+       
+    header nav {
+        display: none;
+    }
+    /*This selector displays the hamburger menu*/
+        .menu-icon {
+        display: block;
+     }
         .card-container{
             grid-template-columns: 1fr;
-            padding: 40px;
+            padding: 50px 10px 80px 10px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
         .yellow {
             background-color: var(--yellow);
-            font-size: 24px;
+            font-size: 20px;
         }
         h1{
             font-size: 40px;
@@ -212,15 +315,9 @@ footer{
         }
         .main-text{
             width: 100%;
+            margin-top: 20px;
         }
-        header button{
+        header button {
             display: none;
         }
-        header nav{
-            display: none;
-        }
-           .card-container{
-            padding: 100px 0px;
-        }
-
     }
