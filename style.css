@@ -104,8 +104,8 @@ main img {
   .menu.show {
     display: block;
     width: 100%;
-    transform: all 0.2s ease-in-out; 
-    transition: all 0.2s ease-in-out;
+    transform: 0.2s ease-in-out; 
+    transition: 0.2s ease-in-out;
   }
 
 /*Css for the anchor links inside the container*/
@@ -208,6 +208,7 @@ main img {
     border-radius: 50px;
     font-size: 16px;
     font-weight: 600;
+    color: black;
 }
 h3 {
     font-size: 24px;
