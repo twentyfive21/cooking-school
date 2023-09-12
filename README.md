@@ -1,5 +1,6 @@
 # Cooking School Website 
 ---
+### Link to the live site : https://sweetberries.netlify.app/
 ### The page I made was modeled after a figma file and I did my best to replicate it. Here is the link to the figma file :  [https://www.figma.com/proto/8WKAikBTMgFVXPRWQpYT7i/Sweet-Berries-Cooking-School---Updated?node-id=3384-231] if you want to start working on this website before looking at how I implemented it!
 ---
 ### Learning outcome : 
